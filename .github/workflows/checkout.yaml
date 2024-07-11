@@ -12,8 +12,8 @@ jobs:
         
       - name: Checkout
         run: |
+          git init
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          cd $GITHUB_REPOSITORY
           git fetch origin
           git checkout main
       - name: List Files After
