@@ -1,0 +1,12 @@
+name: Workflow tests Commands
+on: [push]
+
+jobs:
+  testing-wf-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Updating pip
+        run: python -m pip install --upgrade pip
+      - name: Install httpx
+        run: echo "::error title:Teste aqui!, file=main.py,  
+        line=1:: Instalado"
