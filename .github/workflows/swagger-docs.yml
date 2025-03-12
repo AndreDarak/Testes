@@ -1,0 +1,26 @@
+name: Publicar Documentação Swagger
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch onde deseja rodar o workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 📦 Configurar Swagger UI
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: docs  # Diretório onde a documentação será gerada
+          spec-file: openapi.yaml  # Arquivo OpenAPI/YAML
+
+      - name: 🚀 Deploy para GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Branch onde a documentação será publicada
+          folder: docs  # Pasta gerada pelo Swagger UI
