@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: Minha API
+  description: Documentação da API gerada automaticamente
+  version: 1.0.0
+servers:
+  - url: https://api.exemplo.com
+paths:
+  /usuarios:
+    get:
+      summary: Retorna a lista de usuários
+      responses:
+        '200':
+          description: Sucesso
